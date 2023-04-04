@@ -1,0 +1,53 @@
+/* Style the form labels */
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  
+  /* Style the form inputs */
+  form input,
+  form select {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+  
+  /* Style the form button */
+  form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  /* Style the form button on hover */
+  form button[type="submit"]:hover {
+    background-color: #0062cc;
+  }
+  
+  /* Style the form update button */
+  form button[type="submit"][name="update"] {
+    background-color: #ffc107;
+    color: #000;
+  }
+  
+  /* Style the form update button on hover */
+  form button[type="submit"][name="update"]:hover {
+    background-color: #e0a800;
+  }
+  
+  /* Style the error message */
+  .error {
+    color: red;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  

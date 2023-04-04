@@ -1,28 +1,26 @@
-import { Controller, Get, Post, Put } from '@nestjs/common';
-
-
+import { Controller, Get, Param, ParseUUIDPipe, Render } from '@nestjs/common';
+import { FindTeacherResponseDto } from './dto/teacher.dto';
+import { TeacherService } from './teacher.service';
 
 @Controller('teachers')
 export class TeacherController {
 
+    constructor(private readonly teacherService: TeacherService) { }
+
     @Get()
-    getTeachers() {
-        return "All Teachers";
+    @Render('teachers')
+    async getTeachers(): Promise<{ teachers: FindTeacherResponseDto[] }> {
+        const teachers = this.teacherService.getTeachers();
+        console.log(teachers);
+        return { teachers };
     }
 
     @Get('/:teacherId')
-    getTeacherById() {
-        return "Get a Teacher by Id";
-    }
-
-    @Get('/:teacherId/students')
-    getStudents() {
-        return "Get all students for a teacher";
-    }
-
-    @Put('/:teacherId/students/:studentId') 
-    updateStudentTeacher() {
-        return "Update a teacher";
+    @Render('oneteacher')
+    async getTeacherById(
+        @Param('teacherId', new ParseUUIDPipe()) teacherId: string
+    ): Promise<{ oneteacher: FindTeacherResponseDto }> {
+        const oneteacher = this.teacherService.getTeacherbyId(teacherId);
+        return { oneteacher };
     }
 }
-

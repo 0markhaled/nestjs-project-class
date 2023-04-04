@@ -1,0 +1,22 @@
+{{!-- students.hbs --}}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+</head>
+
+<body>
+    <h1>Student List</h1>
+    {{#each students}}
+    <div>
+        <p>ID: {{id}}</p>
+        <p>Name: {{name}}</p>
+        <p>Teacher: {{teacher}}</p>
+    </div>
+    {{/each}}
+
+</body>
+
+</html>

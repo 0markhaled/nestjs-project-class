@@ -1,13 +1,10 @@
 import { Module } from '@nestjs/common';
-import { StudentController } from 'src/student/student.controller';
-import { TeacherController } from 'src/teacher/teacher.controller';
-import { StudentTeacherController } from 'src/teacher/student.controller';
-
-
+import { TeacherModule } from 'src/teacher/teacher.module';
+import { StudentModule } from 'src/student/student.module';
 
 
 @Module({  //decorator is a function that adds metadata to the class it is in
-  imports: [],
-  controllers: [StudentController, TeacherController, StudentTeacherController], //this is where we specify the controllers
+  imports: [TeacherModule, StudentModule]
 })
+
 export class AppModule { }
